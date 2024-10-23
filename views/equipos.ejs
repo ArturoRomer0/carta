@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos</title>
+</head>
+<body>
+    <h1>Lista de Equipos</h1>
+    <form action="/agregar-equipo" method="POST">
+        <input type="text" name="marca" placeholder="Marca" required>
+        <input type="text" name="modelo" placeholder="Modelo" required>
+        <input type="text" name="numero_serie" placeholder="Número de Serie" required>
+        <button type="submit">Agregar Equipo</button>
+    </form>
+    <ul>
+        <% equipos.forEach(equipo => { %>
+            <li>
+                <%= equipo.marca %> - <%= equipo.modelo %> (Núm. Serie: <%= equipo.numero_serie %>)
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/">Volver a la lista de empleados</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+</head>
+<body>
+    <h1>Lista de Empleados</h1>
+    <form action="/agregar-empleado" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="puesto" placeholder="Puesto" required>
+        <input type="text" name="numero_identificacion" placeholder="Número de Identificación" required>
+        <select name="equipo_id">
+            <option value="">Seleccionar Equipo</option>
+            <% equipos.forEach(equipo => { %>
+                <option value="<%= equipo.id %>"><%= equipo.marca %> - <%= equipo.modelo %></option>
+            <% }) %>
+        </select>
+        <button type="submit">Agregar Empleado</button>
+    </form>
+    <ul>
+        <% empleados.forEach(empleado => { %>
+            <li>
+                <%= empleado.nombre %> - <a href="/carta/<%= empleado.id %>">Generar Carta</a>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/equipos">Ver Equipos</a>
+</body>
+</html>
